@@ -8,8 +8,8 @@
 </head>
 <body>
     <?php
-        include_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/includes/header.php';
-        include_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/includes/footer.php';
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/config.php';
+        require_once BASE_PATH . '/includes/header.php';
     ?>
 
     <h2 class="mt-3 ms-3">Cadastro de Clientes</h2>
@@ -127,5 +127,10 @@
             </div>
         </div>
     </form>
+
+    <?php 
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/config.php';
+    require_once BASE_PATH . '/includes/footer.php'; 
+    ?>?
 </body>
 </html>
