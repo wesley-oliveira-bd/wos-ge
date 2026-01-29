@@ -8,8 +8,8 @@
 </head>
 <body>
     <?php
-        include_once 'includes/header.php';
-        include_once 'includes/footer.php';
+        include_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/includes/header.php';
+        include_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/includes/footer.php';
     ?>
 
 </body>

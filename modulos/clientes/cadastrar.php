@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Fornecedores</title>
+    <title>Cadastro de Clientes</title>
     
 </head>
 <body>
@@ -12,7 +12,7 @@
         include_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/includes/footer.php';
     ?>
 
-    <h2 class="mt-3 ms-3">Cadastro de Fornecedores</h2>
+    <h2 class="mt-3 ms-3">Cadastro de Clientes</h2>
     <form class="row g-1 mt-3 ms-1">
 
         <div class="row">
