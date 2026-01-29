@@ -4,56 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Para Casa Enxovais - WO Systems</title>
-    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    
 </head>
 <body>
-    <header>
-        <div class="container-fluid">
-            <img src="imagens/logo01.png" alt="logo principal do site" class="img-logo">
-        </div>
-        <nav class="nav justify-content-center border-bottom pb-2">
-            
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" ria-expanded="false">Cadastros</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Clientes</a></li>
-                    <li><a class="dropdown-item" href="#">Fornecedores</a></li>
-                    <li><a class="dropdown-item" href="#">Produtos</a></li>
-                    <li><a class="dropdown-item" href="#">Grupos</a></li>
-                </ul>
-            </li>
-            
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" ria-expanded="false">Compras</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Nova</a></li>
-                    <li><a class="dropdown-item" href="#">Consultar</a></li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                </ul>
-            </li>
+    <?php
+        include_once 'includes/header.php';
+        include_once 'includes/footer.php';
+    ?>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" ria-expanded="false">Vendas</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Nova</a></li>
-                    <li><a class="dropdown-item" href="#">Consultar</a></li>
-                    <li><a class="dropdown-item" href="#">Editar</a></li>
-                </ul>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" ria-expanded="false">Financeiro</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Contas a pagar</a></li>
-                    <li><a class="dropdown-item" href="#">Contas a receber</a></li>
-                </ul>
-            </li>
-        </nav>
-    </header>
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
