@@ -22,8 +22,8 @@
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/clientes/cadastrar.php">Clientes</a></li>
                     <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/fornecedores/cadastrar.php">Fornecedores</a></li>
-                    <li><a class="dropdown-item" href="#">Produtos</a></li>
-                    <li><a class="dropdown-item" href="#">Grupos</a></li>
+                    <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/produtos/cadastrar.php">Produtos</a></li>
+                    <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/produtos/grupos.php">Grupos</a></li>
                 </ul>
             </li>
             

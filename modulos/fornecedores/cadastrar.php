@@ -35,22 +35,22 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3" id="grupoCpf">
                 <label for="cpf" class="col-sm-2 col-form-label col-form-label-sm">CPF</label>
                 <input type="number" name="cpf" id="cpf" class="form-control form-control-sm">
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3" id="grupoRg">
                 <label for="rg" class="col-sm-2 col-form-label col-form-label-sm">RG</label>
                 <input type="text" name="rg" id="rg" class="form-control form-control-sm">
             </div>
         </div>
 
         <div class="row">
-            <div class="col-sm-3">
+            <div class="col-sm-3" id="grupoCnpj">
                 <label for="cnpj" class="col-sm-2 col-form-label col-form-label-sm">CNPJ</label>
                 <input type="number" name="cnpj" id="cnpj" class="form-control form-control-sm">
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-3" id="grupoInsc">
                 <label for="insc" class="col-sm-2 col-form-label col-form-label-sm">Insc.Est.</label>
                 <input type="text" name="insc" id="insc" class="form-control form-control-sm">
             </div>
@@ -128,6 +128,33 @@
         </div>
     </form>
 
+
+    <script>
+        const tipo = document.getElementById('tipo');
+
+        const grupoCpf = document.getElementById('grupoCpf');
+        const grupoRg = document.getElementById('grupoRg');
+        const grupoCnpj = document.getElementById('grupoCnpj');
+        const grupoInsc = document.getElementById('grupoInsc');
+
+        function atualizarCampos() {
+            if (tipo.value == 1){
+                //fisico
+                grupoCpf.style.display = 'block';
+                grupoRg.style.display = 'block';
+                grupoCnpj.style.display = 'none';
+                grupoInsc.style.display = 'none';
+            } else if(tipo.value == 0) {
+                grupoCpf.style.display = 'none';
+                grupoRg.style.display = 'none';
+                grupoCnpj.style.display = 'block';
+                grupoInsc.style.display = 'block';
+            }
+        }
+        tipo.addEventListener('change', atualizarCampos)
+        // Executa ao carregar a página (por causa do selected)
+        atualizarCampos();
+    </script>
     
     <?php 
     require_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/config.php';
