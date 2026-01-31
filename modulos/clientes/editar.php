@@ -12,13 +12,14 @@
         require_once BASE_PATH . '/includes/header.php';
     ?>
 
-    <h2 class="mt-3 ms-3">Cadastro de Clientes</h2>
-
-    <a href="<?= BASE_URL ?>/modulos/clientes/editar.php">Editar</a>
-
+    <h2 class="mt-3 ms-3">Edição de Cadastro de Clientes</h2>
     <form class="row g-1 mt-3 ms-1">
 
         <div class="row">
+            <div class="col-sm-1">
+                <label for="id" class="col-sm-2 col-form-label col-form-label-sm">ID</label>
+                <input type="number" name="id" id="id" class="form-control form-control-sm">
+            </div>
             <div class="col-sm-1">
                 <label for="tipo" class="col-sm-2 col-form-label col-form-label-sm">Tipo</label>
                 <select name="tipo" id="tipo" class="form-select form-select-sm">
@@ -127,6 +128,9 @@
         <div class="row">
             <div class="col-sm-2">
                 <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+            </div>
+            <div class="col-sm-2">
+                <button type="submit" class="btn btn-danger mt-2">Excluir</button>
             </div>
         </div>
     </form>
