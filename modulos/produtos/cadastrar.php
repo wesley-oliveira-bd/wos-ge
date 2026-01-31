@@ -17,7 +17,7 @@
    <form class="row g-3 mt-3">
 
     <!-- COLUNA ESQUERDA (DADOS) -->
-    <div class="col-md-7 ps-3">
+    <div class="c">
 
         <div class="row g-2">
             <div class="col-md-2">

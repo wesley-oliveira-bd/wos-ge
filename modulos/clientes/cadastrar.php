@@ -14,7 +14,6 @@
 
     <h2 class="mt-3 ms-3">Cadastro de Clientes</h2>
 
-    <a href="<?= BASE_URL ?>/modulos/clientes/editar.php">Editar</a>
 
     <form class="row g-1 mt-3 ms-1">
 
@@ -124,12 +123,24 @@
 
         
 
-        <div class="row">
-            <div class="col-sm-2">
-                <button type="submit" class="btn btn-primary mt-2">Salvar</button>
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mt-2">
+                    Salvar
+                </button>
+            </div>
+
+            <div class="col-auto">
+                <a href="<?= BASE_URL ?>/modulos/clientes/editar.php"
+                class="btn btn-success mt-2">
+                    Editar
+                </a>
             </div>
         </div>
+
     </form>
+
+
 
     <script>
         const tipo = document.getElementById('tipo');
