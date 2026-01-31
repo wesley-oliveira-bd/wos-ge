@@ -136,6 +136,10 @@
                     Editar
                 </a>
             </div>
+
+            <div class="col-auto">
+                <a href="/wos-ge/index.php" class="btn btn-secondary mt-2">       Cancelar</a>
+            </div>
         </div>
 
     </form>

@@ -93,16 +93,15 @@
         <!-- centralização dos botoes-->
         <div class="row justify-content-center">
             <div class="col-auto">
-                <button type="submit" class="btn btn-primary mt-2">
-                    Salvar
-                </button>
+                <button type="submit" class="btn btn-primary mt-2">Salvar</button>
             </div>
 
             <div class="col-auto">
-                <a href="#"
-                class="btn btn-danger mt-2">
-                    Excluir
-                </a>
+                <a href="#" class="btn btn-danger mt-2">Excluir</a>
+            </div>
+
+            <div class="col-auto">
+                <a href="/wos-ge/index.php" class="btn btn-secondary mt-2">Cancelar</a>
             </div>
         </div>
 

@@ -132,6 +132,11 @@
                             <div class="col-sm-2">
                                 <button type="submit" class="btn btn-danger mt-2">Excluir</button>
                             </div>
+
+                            <div class="col-auto">
+                                <a href="/wos-ge/index.php" class="btn btn-secondary mt-2">Cancelar</a>
+                            </div>
+
                         </div>
                     </div>
         </div>
