@@ -12,7 +12,7 @@
         require_once BASE_PATH . '/includes/header.php';
     ?>
 
-    <h2 class="mt-3 ms-3">Cadastro de Produtos</h2>
+    <h2 class="mt-3 ms-3">Edição de Produtos</h2>
 
    <form class="row g-3 mt-3 ms-1">
 
@@ -20,6 +20,12 @@
     <div class="col border-end">
 
         <div class="row g-2">
+
+            <div class="col-md-1">
+                <label for="id" class="form-label form-label-sm">ID</label>
+                <input type="number" id="id" class="form-control form-control-sm">
+            </div>
+
             <div class="col-md-2">
                 <label for="codigo" class="form-label form-label-sm">Código</label>
                 <input type="number" id="codigo" class="form-control form-control-sm">
@@ -35,7 +41,7 @@
                 <input type="text" id="descricao" class="form-control form-control-sm">
             </div>
 
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <label for="unid" class="form-label form-label-sm">Unid.</label>
                 <input type="text" id="unid" class="form-control form-control-sm">
             </div>
@@ -72,6 +78,16 @@
                 <label for="margem" class="form-label form-label-sm">Margem (%)</label>
                 <input type="number" id="margem" class="form-control form-control-sm">
             </div>
+
+            <div class="col-md-12">
+                <label for="imagem" class="form-label form-label-sm">Imagem</label>
+                <input type="file" id="imagem" class="form-control form-control-sm">
+
+                <!-- opcional: preview -->
+                <div class="mt-2 border rounded p-2 text-center text-muted">
+                    Preview da imagem
+                </div>
+            </div>
         </div>
 
         <!-- centralização dos botoes-->
@@ -83,9 +99,9 @@
             </div>
 
             <div class="col-auto">
-                <a href="<?= BASE_URL ?>/modulos/produtos/editar.php"
-                class="btn btn-success mt-2">
-                    Editar
+                <a href="#"
+                class="btn btn-danger mt-2">
+                    Excluir
                 </a>
             </div>
         </div>
@@ -93,14 +109,13 @@
     </div>
    
     <!-- COLUNA DIREITA (IMAGEM) -->
-    <div class="col-md-5 pe-4">
-        <label for="imagem" class="form-label form-label-sm">Imagem</label>
-        <input type="file" id="imagem" class="form-control form-control-sm">
-
-        <!-- opcional: preview -->
-        <div class="mt-2 border rounded p-2 text-center text-muted">
-            Preview da imagem
-        </div>
+    <div class="col-md-5 ps-2 me-2">
+        
+            <div class="input-group">
+                <input type="text" name="consultar" id="consultar" class="form-control form-control-sm">
+                <button class="btn btn-primary sm-2" type="button" id="consultar" name="consultar">Consultar</button>
+            </div>
+        
     </div>
     
         
