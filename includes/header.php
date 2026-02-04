@@ -39,7 +39,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" ria-expanded="false">Vendas</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Nova</a></li>
+                    <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/vendas/nova_venda.php">Nova</a></li>
                     <li><a class="dropdown-item" href="#">Consultar</a></li>
                     <li><a class="dropdown-item" href="#">Editar</a></li>
                 </ul>

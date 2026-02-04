@@ -46,7 +46,8 @@
                 <label for="aplicacao" class="form-label form-label-sm">Aplicação</label>
                 <input type="text" id="aplicacao" class="form-control form-control-sm">
             
-            </div><div class="col-md-2">
+            </div>
+            <div class="col-md-2">
                 <label for="grupo" class="form-label form-label-sm">Grupo</label>
                 <select class="form-select" name="grupo" id="grupo">
                     <option selected>Escolha o grupo</option>
