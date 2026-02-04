@@ -134,15 +134,6 @@
                 <label class="form-label">Parcela Atual</label>
                 <input type="number" class="form-control form-control-sm">
             </div>
-
-            <div class="col-md-2 d-flex align-items-end">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox">
-                    <label class="form-check-label">
-                        Recorrente
-                    </label>
-                </div>
-            </div>
         </div>
 
         <!-- OBSERVAÇÃO -->
@@ -163,6 +154,7 @@
                 <a href="/wos-ge/index.php" class="btn btn-secondary btn-sm">
                     Cancelar
                 </a>
+                <a href="/wos-ge/modulos/financeiro/contas_pagar/editar.php" class="btn btn-success btn-sm">Editar</a>
             </div>
         </div>
 

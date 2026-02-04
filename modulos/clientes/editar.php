@@ -140,8 +140,7 @@
                     </div>
         </div>
 
-                <div class="vr"></div>
-
+        <div class="vr"></div>
 
         <div class="col-sm-4 ps-2">
             <div class="input-group">
