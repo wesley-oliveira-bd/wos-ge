@@ -49,7 +49,7 @@
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" ria-expanded="false">Financeiro</a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/financeiro/contas_pagar/cadastrar.php">Contas a pagar</a></li>
-                    <li><a class="dropdown-item" href="#">Contas a receber</a></li>
+                    <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/financeiro/contas_receber/cadastrar.php">Contas a receber</a></li>
                 </ul>
             </li>
         </nav>
