@@ -86,3 +86,94 @@ function calcularTotalGeral() {
     // exibe no input total
     document.getElementById('total').value = totalGeral.toFixed(2);
 }
+
+
+
+//PARTE DO CODIGO PARA CONTROLAR PARCELAMENTO
+// Espera o HTML carregar completamente
+document.addEventListener('DOMContentLoaded', function () {
+
+    // 1. Captura dos elementos da tela
+    const formaPagamento = document.getElementById('forma_pagamento');
+    const boxQuantParcelas = document.getElementById('box_quant_parcelas');
+    const inputQuantParcelas = document.getElementById('quant_parcelas');
+    const boxParcelamento = document.getElementById('parcelamento');
+    const tabelaParcelas = document.querySelector('#tabela_parcelamento tbody');
+
+    // 2. Evento: quando mudar a forma de pagamento
+    formaPagamento.addEventListener('change', function () {
+        tratarFormaPagamento();
+    });
+
+    // 3. Evento: quando mudar a quantidade de parcelas
+    inputQuantParcelas.addEventListener('input', function () {
+        gerarParcelas();
+    });
+
+    // Função principal
+    function tratarFormaPagamento() {
+        const forma = formaPagamento.value;
+
+        // Limpa tudo antes
+        esconderParcelamento();
+
+        // Prazo (3) ou Cartão Crédito (4)
+        if (forma === '3' || forma === '4') {
+            boxQuantParcelas.classList.remove('d-none');
+        }
+    }
+
+    function esconderParcelamento() {
+        boxQuantParcelas.classList.add('d-none');
+        boxParcelamento.classList.add('d-none');
+        inputQuantParcelas.value = '';
+        tabelaParcelas.innerHTML = '';
+    }
+
+    function gerarParcelas() {
+        const qtd = parseInt(inputQuantParcelas.value);
+
+        // Validação básica
+        if (!qtd || qtd <= 0) {
+            boxParcelamento.classList.add('d-none');
+            tabelaParcelas.innerHTML = '';
+            return;
+        }
+
+        // Exibe a tabela
+        boxParcelamento.classList.remove('d-none');
+        tabelaParcelas.innerHTML = '';
+
+        // ⚠️ Valor total (por enquanto fixo)
+        const valorTotalInput = document.getElementById('total');
+        const valorTotal = parseFloat(valorTotalInput.value.replace(',', '.')) || 0;
+        
+        const valorParcela = valorTotal / qtd;
+
+        for (let i = 1; i <= qtd; i++) {
+            const dataVencimento = calcularVencimento(i);
+
+            const linha = `
+                <tr>
+                    <td>${i}</td>
+                    <td>${dataVencimento}</td>
+                    <td>R$ ${valorParcela.toFixed(2)}</td>
+                </tr>
+            `;
+
+            tabelaParcelas.innerHTML += linha;
+        }
+    }
+
+    function calcularVencimento(numeroParcela) {
+        const hoje = new Date();
+        hoje.setMonth(hoje.getMonth() + numeroParcela);
+
+        const dia = String(hoje.getDate()).padStart(2, '0');
+        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+        const ano = hoje.getFullYear();
+
+        return `${dia}/${mes}/${ano}`;
+    }
+
+});

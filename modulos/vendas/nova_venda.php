@@ -66,6 +66,45 @@
             </table>
         </div>
 
+        <!-- FORMA DE PAGAMENTO-->
+         <div class="row">
+             <div class="col-sm-3" id="box_forma_pagamento">
+                <label class="form-label">Forma de Pagamento</label>
+                <select class="form-select form-select-sm" id="forma_pagamento" name="forma_pagamento">
+                    <option value="" selected>Selecione</option>
+                    <option value="1">Dinheiro</option>
+                    <option value="2">Pix</option>
+                    <option value="3">Prazo</option>
+                    <option value="4">Cartão crédito</option>
+                    <option value="5">Cartão débito</option>
+                </select>
+            </div>
+            <!-- ESSE BOX DEVE FICAR OCULTO-->
+            <div class="col-sm-1 d-none" id="box_quant_parcelas">
+                <label class="form-label">Quant.</label>
+                <input type="number" name="quant_parcelas" id="quant_parcelas" class="form-control form-control-sm">
+            </div>
+         </div>   
+
+        <!-- parcelamento-->
+         <div class="row">
+             <div class="col-sm-3 d-none" id="parcelamento">
+                <label class="form-label">Parcelas</label>
+                <table class="table table-sm table-striped-columns align-middle" id="tabela_parcelamento">
+                    <thead class="table-light">
+                        <tr>
+                            <th>N.parc.</th>
+                            <th>Vencimento</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- linhas entram aqui -->
+                    </tbody>
+                </table>
+            </div>
+         </div>
+
 
     </form>
 
