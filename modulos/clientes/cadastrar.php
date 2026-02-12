@@ -15,7 +15,7 @@
     <h2 class="mt-3 ms-3">Cadastro de Clientes</h2>
 
 
-    <form class="row g-1 mt-3 ms-1">
+    <form class="row g-1 mt-3 ms-1" action="salvar.php" method="POST">
 
         <div class="row">
             <div class="col-sm-1">
@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <label for="endereco" class="col-sm-2 col-form-label col-form-label-sm">Endereço</label>
-                <input type="text" name="texto" id="texto" class="form-control form-control-sm">
+                <input type="text" name="endereco" id="endereco" class="form-control form-control-sm">
             </div>
             <div class="col-sm-1">
                 <label for="numero" class="col-sm-2 col-form-label col-form-label-sm">Numero</label>
@@ -144,7 +144,7 @@
 
     </form>
 
-
+    
 
     <script>
         const tipo = document.getElementById('tipo');
