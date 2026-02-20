@@ -50,7 +50,7 @@
     </div>
 
 
-    <form class="row g-1 mt-3 me-2 ms-1" method="POST">
+    <form class="row g-1 mt-3 me-3 ms-3" method="POST">
 
         <div class="input-group">
             <input type="text" name="consultar" id="consultar" class="form-control form-control-sm">
@@ -59,8 +59,8 @@
 
     </form>
 
-    <div class="table-responsive ms-2 me-2 mt-3">
-        <table class="table table-success table-striped table-bordered table-sm">
+    <div class="table-responsive ms-3 me-3 mt-3">
+        <table class="table table-success table-striped table-bordered table-sm" style="font-size: 0.75rem;">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -89,8 +89,12 @@
                             <td><?= $cliente['limite'] ?></td>
                             <td><?= $cliente['obs'] ?></td>
                             <td><?= $cliente['ativo'] ?></td>
-                            <td>editar</td>
-                            <td>excluir</td>
+                            <td><a href="" class="btn btn-sm btn-outline-success d-flex justify-content-center align-items-center" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="bi bi-pencil-square"></i></a></td>
+                            <td>
+                                <a href="excluir.php?id=<?= $cliente['id'] ?>" class="btn btn-sm d-flex btn-outline-danger justify-content-center align-items-center" style="--bs-btn-padding-y:.25rem; --bs-btn-padding-x:.5rem; --bs-btn-font-size:.75rem;" onclick="return confirm('Tem certeza que deseja excluir este cliente?')">
+                                    <i class="bi bi-trash3"></i>
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
