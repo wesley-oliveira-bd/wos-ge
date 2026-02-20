@@ -7,6 +7,42 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     die('Acesso inválido');
 }
 
+/* =========================
+   ✅ VALIDAÇÃO (ENTRA AQUI)
+========================= */
+
+$erros = [];
+
+// campos obrigatórios
+if (empty(trim($_POST['nome'] ?? ''))) {
+    $erros[] = 'Nome é obrigatório';
+}
+
+// valida CPF ou CNPJ conforme o tipo
+if (($_POST['tipo'] ?? '') == '1') {
+
+    if (empty($_POST['cpf'])) {
+        $erros[] = 'CPF é obrigatório';
+    }
+
+} else {
+
+    if (empty($_POST['cnpj'])) {
+        $erros[] = 'CNPJ é obrigatório';
+    }
+}
+
+// se houver erros, para tudo
+if (!empty($erros)) {
+    echo '<div style="font-family: Arial; padding:20px;">';
+    echo '<h4 style="color:red;">Erro ao salvar:</h4>';
+    echo implode('<br>', $erros);
+    echo '<br><br>';
+    echo '<button onclick="history.back()" style="padding:8px 16px;">Voltar</button>';
+    echo '</div>';
+    exit;
+}
+
 try {
 
     $limite = str_replace(',', '.', $_POST['limite'] ?? 0);

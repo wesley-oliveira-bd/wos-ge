@@ -12,24 +12,54 @@
         require_once BASE_PATH . '/includes/header.php';
         require_once BASE_PATH . '/config/conexao.php';
 
-        $stmt = "SELECT * FROM clientes ORDER BY nome ASC";
-        $result = $pdo->query($stmt);
-        $clientes = $result->fetchAll(PDO::FETCH_ASSOC);
+        $clientes = [];
+
+        if (isset($_POST['btnConsultar']) && !empty($_POST['consultar'])) {
+
+            $busca = "%" . $_POST['consultar'] . "%";
+
+            $stmt = $pdo->prepare("
+                SELECT * FROM clientes
+                WHERE nome LIKE :busca
+                OR cpf LIKE :busca
+                OR cnpj LIKE :busca
+                ORDER BY nome ASC
+            ");
+
+            $stmt->bindParam(':busca', $busca);
+            $stmt->execute();
+
+            $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            } else {
+
+                // 🔹 se não buscou, mostra todos
+                $stmt = $pdo->query("SELECT * FROM clientes ORDER BY nome ASC");
+                $clientes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            }
     ?>
 
     <h2 class="mt-3 ms-3">Cadastro de Clientes</h2>
 
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <a href="<?= BASE_URL ?>/modulos/clientes/cadastrar.php" class="btn btn-primary mt-2">
+                Novo Cliente
+            </a>
+        </div>
+    </div>
 
-    <form class="row g-1 mt-3 ms-1" action="#" method="POST">
+
+    <form class="row g-1 mt-3 me-2 ms-1" method="POST">
 
         <div class="input-group">
             <input type="text" name="consultar" id="consultar" class="form-control form-control-sm">
-            <button class="btn btn-primary sm-2" type="button" id="consultar" name="consultar">Consultar</button>
+            <button class="btn btn-primary sm-2" type="submit" id="btnConsultar" name="btnConsultar">Consultar</button>
         </div>
 
     </form>
 
-    <div class="table-responsive">
+    <div class="table-responsive ms-2 me-2 mt-3">
         <table class="table table-success table-striped table-bordered table-sm">
             <thead>
                 <tr>

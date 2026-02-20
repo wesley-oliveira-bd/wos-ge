@@ -20,7 +20,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" ria-expanded="false">Cadastros</a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/clientes/cadastrar.php">Clientes</a></li>
+                    <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/clientes/clientes.php">Clientes</a></li>
                     <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/fornecedores/cadastrar.php">Fornecedores</a></li>
                     <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/produtos/cadastrar.php">Produtos</a></li>
                     <li><a class="dropdown-item" href="<?= BASE_URL ?>/modulos/produtos/grupos.php">Grupos</a></li>
