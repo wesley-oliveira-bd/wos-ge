@@ -29,7 +29,7 @@
     ?>
 
     <h2 class="mt-3 ms-3">Edição de Cadastro de Clientes</h2>
-    <form method="POST" action="editar.php" class="row g-1 mt-3 ms-1 me-2">
+    <form method="POST" action="editar-cliente.php" class="row g-1 mt-3 ms-1 me-2">
         <div class="row">
             <div class="col-sm-1">
                 <label for="id" class="col-sm-2 col-form-label col-form-label-sm">ID</label>
