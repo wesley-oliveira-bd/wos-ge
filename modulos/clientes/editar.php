@@ -10,98 +10,114 @@
     <?php
         require_once $_SERVER['DOCUMENT_ROOT'] . '/wos-ge/config.php';
         require_once BASE_PATH . '/includes/header.php';
+        require_once BASE_PATH . '/config/conexao.php';
+
+        $id = $_GET['id'] ?? null;
+
+        if (!$id) {
+            die("ID não informado");
+        }
+
+        $stmt = $pdo->prepare("SELECT * FROM clientes WHERE id = ?");
+        $stmt->execute([$id]);
+
+        $cliente = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if(!$cliente){
+            die("Cliente não encontrado");
+        }
     ?>
 
     <h2 class="mt-3 ms-3">Edição de Cadastro de Clientes</h2>
-    <form class="row g-1 mt-3 ms-1 me-2">
+    <form method="POST" action="editar.php" class="row g-1 mt-3 ms-1 me-2">
         <div class="row">
             <div class="col-sm-1">
                 <label for="id" class="col-sm-2 col-form-label col-form-label-sm">ID</label>
-                <input type="number" name="id" id="id" class="form-control form-control-sm">
+                <input type="number" name="id" id="id" class="form-control form-control-sm" value="<?php echo $cliente['id']; ?>">
             </div>
             <div class="col-sm-1">
                 <label for="tipo" class="col-sm-2 col-form-label col-form-label-sm">Tipo</label>
                 <select name="tipo" id="tipo" class="form-select form-select-sm">
                     <option value="">Selecione</option>
-                    <option value="1" selected>Fisico</option>
-                    <option value="0">Juridico</option>
+                    <option value="1" <?php if ($cliente['tipo'] == 1) echo 'selected'; ?>>Fisico</option>
+                    <option value="0" <?php if ($cliente['tipo'] == 0) echo 'selected'; ?>>Juridico</option>
                 </select>
             </div>
             <div class="col-sm-5">
                 <label for="nome" class="col-sm-2 col-form-label col-form-label-sm">Nome</label>
-                <input type="text" name="nome" id="nome" class="form-control form-control-sm">
+                <input type="text" name="nome" id="nome" class="form-control form-control-sm" value="<?php echo $cliente['nome']; ?>">
             </div>
             <div class="col-sm-3">
                 <label for="apelido" class="col-sm-2 col-form-label col-form-label-sm">Apelido</label>
-                <input type="text" name="apelido" id="apelido" class="form-control form-control-sm">
+                <input type="text" name="apelido" id="apelido" class="form-control form-control-sm" value="<?php echo $cliente['apelido']; ?>">
             </div>
         </div>
         <div class="row">
             <div class="col-sm-3" id="grupoCpf">
                 <label for="cpf" class="col-sm-2 col-form-label col-form-label-sm">CPF</label>
-                <input type="number" name="cpf" id="cpf" class="form-control form-control-sm">
+                <input type="number" name="cpf" id="cpf" class="form-control form-control-sm" value="<?php echo $cliente['cpf']; ?>">
             </div>
             <div class="col-sm-3" id="grupoRg">
                 <label for="rg" class="col-sm-2 col-form-label col-form-label-sm">RG</label>
-                <input type="text" name="rg" id="rg" class="form-control form-control-sm">
+                <input type="text" name="rg" id="rg" class="form-control form-control-sm" value="<?php echo $cliente['rg']; ?>">
             </div>
         </div>
         <div class="row">
             <div class="col-sm-3" id="grupoCnpj">
                 <label for="cnpj" class="col-sm-2 col-form-label col-form-label-sm">CNPJ</label>
-                <input type="number" name="cnpj" id="cnpj" class="form-control form-control-sm">
+                <input type="number" name="cnpj" id="cnpj" class="form-control form-control-sm" value="<?php echo $cliente['cnpj']; ?>">
             </div>
             <div class="col-sm-3" id="grupoInsc">
                 <label for="insc" class="col-sm-2 col-form-label col-form-label-sm">Insc.Est.</label>
-                <input type="text" name="insc" id="insc" class="form-control form-control-sm">
+                <input type="text" name="insc" id="insc" class="form-control form-control-sm" value="<?php echo $cliente['insc']; ?>">
             </div>
         </div>
         <div class="row">
             <div class="col-sm-5">
                 <label for="endereco" class="col-sm-2 col-form-label col-form-label-sm">Endereço</label>
-                <input type="text" name="texto" id="texto" class="form-control form-control-sm">
+                <input type="text" name="texto" id="texto" class="form-control form-control-sm" value="<?php echo $cliente['endereco']; ?>">
             </div>
             <div class="col-sm-1">
                 <label for="numero" class="col-sm-2 col-form-label col-form-label-sm">Numero</label>
-                <input type="text" name="numero" id="numero" class="form-control form-control-sm">
+                <input type="text" name="numero" id="numero" class="form-control form-control-sm" value="<?php echo $cliente['numero']; ?>">
             </div>
             <div class="col-sm-1">
                 <label for="complemento" class="col-sm-2 col-form-label col-form-label-sm">Compl.</label>
-                <input type="text" name="complemento" id="complemento" class="form-control form-control-sm">
+                <input type="text" name="complemento" id="complemento" class="form-control form-control-sm" value="<?php echo $cliente['complemento']; ?>">
             </div>
             <div class="col-sm-2">
                 <label for="bairo" class="col-sm-2 col-form-label col-form-label-sm">Bairro</label>
-                <input type="text" name="bairro" id="bairro" class="form-control form-control-sm">
+                <input type="text" name="bairro" id="bairro" class="form-control form-control-sm" value="<?php echo $cliente['bairro']; ?>">
             </div>
             <div class="col-sm-2">
                 <label for="cidade"  class="col-sm-2 col-form-label col-form-label-sm">Cidade</label>
-                <input type="text" name="cidade" id="cidade" class="form-control form-control-sm">
+                <input type="text" name="cidade" id="cidade" class="form-control form-control-sm" value="<?php echo $cliente['cidade']; ?>">
             </div>
             <div class="col-sm-1">
                 <label for="uf"  class="col-sm-2 col-form-label col-form-label-sm">UF</label>
-                <input type="text" name="uf" id="uf" class="form-control form-control-sm">
+                <input type="text" name="uf" id="uf" class="form-control form-control-sm" value="<?php echo $cliente['uf']; ?>">
             </div>
         </div>
         <div class="row">
             <div class="col-sm-2">
                 <label for="cep" class="col-sm-2 col-form-label col-form-label-sm">CEP</label>
-                <input type="number" name="cep" id="cep" class="form-control form-control-sm">
+                <input type="number" name="cep" id="cep" class="form-control form-control-sm" value="<?php echo $cliente['cep']; ?>">
             </div>
             <div class="col-sm-2">
                 <label for="celular" class="col-sm-2 col-form-label col-form-label-sm">Celular</label>
-                <input type="number" name="celular" id="celular" class="form-control form-control-sm">
+                <input type="number" name="celular" id="celular" class="form-control form-control-sm" value="<?php echo $cliente['celular']; ?>">
             </div>
             <div class="col-sm-3">
                 <label for="email" class="col-sm-2 col-form-label col-form-label-sm">Email</label>
-                <input type="email" name="email" id="email" class="form-control form-control-sm">
+                <input type="email" name="email" id="email" class="form-control form-control-sm" value="<?php echo $cliente['email']; ?>">
             </div>
             <div class="col-sm-2">
                 <label for="limite" class="col-sm-2 col-form-label col-form-label-sm">Limite</label>
-                <input type="number" name="limite" id="limite" class="form-control form-control-sm">
+                <input type="number" name="limite" id="limite" class="form-control form-control-sm" value="<?php echo $cliente['limite']; ?>">
             </div>
             <div class="col-sm-3">
                 <label for="obs" class="col-sm-2 col-form-label col-form-label-sm">Obs.</label>
-                <input type="text" name="obs" id="obs" class="form-control form-control-sm">
+                <input type="text" name="obs" id="obs" class="form-control form-control-sm" value="<?php echo $cliente['obs']; ?>">
             </div>
         </div>
 
@@ -110,8 +126,8 @@
                 <label for="ativo" class="col-sm-2 col-form-label col-form-label-sm">Ativo?</label>
                 <select name="ativo" id="ativo" class="form-select form-select-sm">
                     <option value="">Selecione</option>
-                    <option value="1" selected>Sim</option>
-                    <option value="0">Não</option>
+                    <option value="1" <?php if ($cliente['ativo'] == 1) echo 'selected'; ?>> SIM </option>
+                    <option value="0" <?php if ($cliente['ativo'] == 0) echo 'selected'; ?>> NÃO </option>
                 </select>
             </div>
         </div>
@@ -125,12 +141,8 @@
                     <button type="submit" class="btn btn-primary mt-2">Salvar</button>
                 </div>
                 
-                <div class="col-sm-2">
-                    <button type="submit" class="btn btn-danger mt-2">Excluir</button>
-                </div>
-
                 <div class="col-auto">
-                    <a href="/wos-ge/index.php" class="btn btn-secondary mt-2">Cancelar</a>
+                    <a href="/wos-ge/modulos/clientes/clientes.php" class="btn btn-secondary mt-2">Cancelar</a>
                 </div>
             </div>
         </div>

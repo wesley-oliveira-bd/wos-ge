@@ -88,8 +88,8 @@
                             <td><?= $cliente['celular'] ?></td>
                             <td><?= $cliente['limite'] ?></td>
                             <td><?= $cliente['obs'] ?></td>
-                            <td><?= $cliente['ativo'] ?></td>
-                            <td><a href="" class="btn btn-sm btn-outline-success d-flex justify-content-center align-items-center" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="bi bi-pencil-square"></i></a></td>
+                            <td><?= $cliente['ativo'] == 1 ? 'SIM' : 'NÃO'; ?></td>
+                            <td><a href="editar.php?id=<?=$cliente['id']?>" class="btn btn-sm btn-outline-success d-flex justify-content-center align-items-center" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><i class="bi bi-pencil-square"></i></a></td>
                             <td>
                                 <a href="excluir.php?id=<?= $cliente['id'] ?>" class="btn btn-sm d-flex btn-outline-danger justify-content-center align-items-center" style="--bs-btn-padding-y:.25rem; --bs-btn-padding-x:.5rem; --bs-btn-font-size:.75rem;" onclick="return confirm('Tem certeza que deseja excluir este cliente?')">
                                     <i class="bi bi-trash3"></i>
